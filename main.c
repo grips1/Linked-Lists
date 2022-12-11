@@ -64,16 +64,16 @@ int RemoveIndex(node** head, unsigned int index)
     node* current = *head;
     node* temp = NULL;
 
-    if(current->next == NULL)
+    if(index == 1)
         return removehead(head);
 
-    if(current->next->next != NULL)
+    for(int i = 0;i > index-1 ; ++index)
     {
-        for(index > 0; --index)
-        {
-            current = current->next;
-        }
+        if(current->next == NULL) return -1;
+        current = current->next;
     }
+    if(current->next == NULL) return -1;
+
     temp = current->next;
     int returnval = temp->val;
     current->next = temp->next;
@@ -97,13 +97,17 @@ int main()
     addtoend(head, 1);
     addtoend(head, 2);
     PrintList(head);
-
+    printf("Head's value = %d.. Let's change that to 5.", head->val);
     addnewhead(&head, 5);
     PrintList(head);
 
-    printf("Removed head with value of: %d\n", (removeend(head)));
+    printf("Removed head with value of: %d\n. Continuing!\n", (removeend(head)));
     PrintList(head);
+
     removehead(&head);
+    PrintList(head);
+    RemoveIndex(&head, 2);
+    printf("Printing final result:\n");
     PrintList(head);
     return 0;
 }
