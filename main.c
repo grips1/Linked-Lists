@@ -22,14 +22,12 @@ int removehead(node** head) //"removehead" == "pop"
     node* NextNode = NULL;
     if(*head == NULL)
         return -1;
-
     NextNode = (*head)->next;
     int returnval = (*head)->val;
     free(*head);
     *head = NextNode;
     return returnval;
 }
-
 void addtoend(node* _head, int value)
 {
     node* newnode = malloc(sizeof(node));
@@ -101,7 +99,6 @@ int main()
     printf("Head's value = %d.. Changing..\n", head->val);
     addnewhead(&head, 5);
     PrintList(head);
-
     printf("Removed tail with value of: %d.\nContinuing!\n", (removeend(head)));
     PrintList(head);
     printf("Decapitating LL... :)\n");
