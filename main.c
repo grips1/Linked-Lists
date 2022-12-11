@@ -87,7 +87,7 @@ void PrintList(node* _head)
         printf("%d ", _head->val);
         _head = _head->next;
     }
-    printf("\n\nJob is done, now it's time to sit back, relax and enjoy life!\n\n");
+    printf("\nJob is done.\n");
 }
 int main()
 {
@@ -96,16 +96,18 @@ int main()
     head->next = NULL;
     addtoend(head, 1);
     addtoend(head, 2);
+    printf("Initial LL: ");
     PrintList(head);
-    printf("Head's value = %d.. Let's change that to 5.", head->val);
+    printf("Head's value = %d.. Changing..\n", head->val);
     addnewhead(&head, 5);
     PrintList(head);
 
-    printf("Removed head with value of: %d\n. Continuing!\n", (removeend(head)));
+    printf("Removed tail with value of: %d.\nContinuing!\n", (removeend(head)));
     PrintList(head);
-
+    printf("Decapitating LL... :)\n");
     removehead(&head);
     PrintList(head);
+    printf("Removing 2nd node from LL... (of value %d)\n", head->next->val);
     RemoveIndex(&head, 2);
     printf("Printing final result:\n");
     PrintList(head);
